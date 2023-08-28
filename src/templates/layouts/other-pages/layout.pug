@@ -3,39 +3,14 @@ block variables
   include ../../abstracts/variables
 
 //- mixins
-include ../../abstracts/mixins/link
-include ../../abstracts/mixins/breadcrumbs
-include ../../abstracts/mixins/category-grid
-include ../../abstracts/mixins/product-card
-include ../../abstracts/mixins/txt-link
-include ../../abstracts/mixins/news-card
-include ../../abstracts/mixins/products-tile
-include ../../abstracts/mixins/product-slider
-include ../../abstracts/mixins/product-specs
-include ../../abstracts/mixins/production-slider
 
 doctype html
 html(lang="ru")
   head
-    if (map)
-      include ../other-pages/head
-    else
-      include ../main/head
+    include ../main/head
   body
-    include ../../sections/global/preloader
+    //include ../../sections/global/preloader
     include ../main/header
-    main.main(class=mainModifier ? `main_${mainModifier}`:'')
-      if (!topSecBreadcrumbs && breadCrumbsList)
-        +breadcrumbs(breadCrumbsList)
+    main
       block content
     include ../main/footer
-    .contact-form__overlay
-    button.contact-form-btn
-      img(src=require('@/assets/img/global/form-icon.svg') alt="")
-    include ../../sections/global/contact-form
-    if (imageModal)
-      include ../../sections/global/image-modal
-    if (callModal)
-      include ../../sections/global/call-modal
-    if (map)
-      include ../../html/map.html

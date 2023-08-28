@@ -1,7 +1,0 @@
-section.index-news
-  .container
-    h2.section-title.slide-right Новости
-    .index-news__grid
-      each el in newsList
-        +news-card(el)
-    +txt-link({ url: 'news.html', txt: 'Все новости', class: 'slide-up' })
