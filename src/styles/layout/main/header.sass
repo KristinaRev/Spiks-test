@@ -3,3 +3,78 @@
 @use '../../abstracts/extends' as *
 
 .header
+  padding-top: 22px
+
+  .container
+    display: flex
+    gap: 16px
+    align-items: center
+
+  &_logo
+    color: $white
+    +font(30px, 30px, 700)
+    letter-spacing: 0.01em
+
+  &-search
+    width: 469px
+    height: 48px
+    display: flex
+    align-items: center
+    gap: 5px
+    border: 1px solid $gray
+    border-radius: 12px
+    box-sizing: border-box
+    padding: 12px 20px
+
+    &_btn
+      display: flex
+      align-items: center
+      justify-content: center
+      background-color: transparent
+      border: none
+      cursor: pointer
+
+    &_input
+      background-color: transparent
+      width: 70%
+      color: $white
+      +font(16px, 22px, 400)
+
+      &::placeholder
+        +font(16px, 22px, 400)
+        letter-spacing: 0.01em
+        color: $gray
+
+  &-btns
+    display: flex
+    gap: 10px
+
+    &-item
+      border: 1px solid rgba(132, 213, 44, 0.36)
+      background: linear-gradient(0deg, #353542, #353542),linear-gradient(174.36deg, rgba(132, 213, 44, 0.36) 11.39%, rgba(23, 23, 34, 0) 189.78%)
+      box-sizing: border-box
+      padding: 12px 20px
+      border-radius: 10px
+      display: flex
+      align-items: center
+      gap: 10px
+      cursor: pointer
+      transition: background-color .5s ease-in-out
+
+      span
+        +font(18px, 24px, 700)
+        color: $white
+
+      &:hover, &.active, &:first-child
+        background: transparent
+        box-shadow: 0 3px 15px 0 rgba(132, 213, 44, 0.2)
+
+
+
+
+
+
+
+
+
+

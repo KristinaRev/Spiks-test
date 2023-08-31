@@ -13,30 +13,32 @@ block content
           each el, id in ranges
             .range
               h5=el.title
-                if el.min > 0
+                if el.min == 0
                   span=el.count
               .range-line
                 .range-line-indicator
                   input.slider(type='range' min=el.min max=el.max step='1' value='50' id='#{id}#{el.title}')
-                  .range-value(id='#{id}#{el.title}Value') 50
+                  .range-line-indicator-value(id='#{id}#{el.title}Value') 50
               .range-values
                 if el.min > 0
-                  .range-values-item=el.min
+                  .range-values-item.range-values-item-min=el.min
                     span=el.count
+                else
+                  .range-values-plug
                 .range-values-item=el.max
                   span=el.count
           .main-top-ranges-img
             h5 Nose
             | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/index/range.svg')}
-            .main-top-ranges-items
+            .main-top-ranges-img-items
               span min
               span max
-        button.sort-by
+        .sort-by
           | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/index/sortby.svg')}
           .sort-by-list
             each el in sortByList
               button.sort-by-list_btn
-                .sort-by-list-item-img
+                .sort-by-list-img
                   img.img-main(src=el.img alt)
                   if el.imgMin
                     img.img-mini(src=el.imgMin alt)
@@ -58,9 +60,11 @@ block content
                 | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/index/arrow-toggle.svg')}
             .main-results-filters-container
               each item, id in el.items
-                input(type='checkbox' id='#{item}')
-                span=item
-          | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/index/list.svg')}
+                .results-filters-item
+                  input(type='checkbox' id='#{item}#{id}')
+                  label(for='#{item}#{id}')=item
+          .main-results-img
+            | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/index/list.svg')}
 
 
 

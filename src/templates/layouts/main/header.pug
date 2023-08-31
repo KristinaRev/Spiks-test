@@ -1,13 +1,13 @@
 header.header
   .container
-    .header-logo
-      h3 Marketplace
+    h3.header_logo Marketplace
     .header-search
       button.header-search_btn
         | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/global/search.svg')}
       input.header-search_input(type='text' placeholder='search for a product, flower, etc')
     .header-btns
       each el in headerBtns
-        | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/global/list.svg')}
-        span=el
+        .header-btns-item
+          | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/global/list.svg')}
+          span=el
 

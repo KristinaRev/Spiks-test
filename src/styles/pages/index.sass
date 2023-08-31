@@ -1,0 +1,230 @@
+@use '../abstracts/variables' as *
+@use '../abstracts/mixins' as *
+@use '../abstracts/extends' as *
+
+.main
+  margin-top: 29px
+
+  &-top
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    &-ranges
+      display: flex
+      gap: 25px
+
+      .range
+        width: 227px
+
+        h5
+          +font(16px, 21px, 600)
+          color: $white
+          margin-bottom: 20px
+
+        &-line
+
+          &-indicator
+            position: relative
+
+            &-value
+              position: absolute
+
+        &-values
+          display: flex
+          align-items: center
+          justify-content: space-between
+          width: 100%
+          margin-top: 9px
+
+          &-item
+            box-sizing: border-box
+            padding: 1px 5px
+            color: $gray-dark
+            display: flex
+            align-items: center
+            +font(14px, 19px, 400)
+            gap: 2px
+            border: 1px solid $gray-dark
+            border-radius: 3px
+
+            &-min
+              color: $white
+
+      &-img
+
+        h5
+          color: $white
+          +font(16px, 21px, 600)
+          margin-bottom: 5px
+
+        &-items
+          width: 100%
+          display: flex
+          align-items: center
+          justify-content: space-between
+
+          span
+            +font(12px, 16px, 400)
+            color: $gray
+
+    .sort-by
+      border: 1px solid rgba(132, 213, 44, 0.36)
+      background: linear-gradient(0deg, #353542, #353542),linear-gradient(174.36deg, rgba(132, 213, 44, 0.36) 11.39%, rgba(23, 23, 34, 0) 189.78%)
+      display: flex
+      align-items: center
+      justify-content: center
+      position: relative
+      box-sizing: border-box
+      width: 48px
+      height: 48px
+      border-radius: 10%
+      cursor: pointer
+
+      &-list
+        position: absolute
+        display: flex
+        flex-direction: column
+        gap: 10px
+        box-sizing: border-box
+        padding: 20px
+        box-shadow: 0 10px 25px 0 rgba(15, 15, 23, 0.63)
+        top: 65px
+        right: 0
+        left: auto
+        background: $gray-bg
+        border-radius: 10px
+
+        &-img
+          width: 24px
+          position: relative
+
+          .img-mini
+            position: absolute
+            right: 0
+            bottom: 0
+
+        &_btn
+          background: transparent
+          border: none
+          display: flex
+          gap: 10px
+
+          p
+            +font(16px, 21px , 400)
+            color: $white
+            white-space: nowrap
+
+  &-results
+    margin-top: 15px
+
+    &-top
+      display: flex
+      align-items: center
+      gap: 30px
+
+      h5
+        +font(16px, 21px, 600)
+        color: $white
+
+      &-btns
+        display: flex
+        align-items: center
+        gap: 10px
+        flex-wrap: wrap
+
+        .results-filter-item
+          box-shadow: -5px -5px 16px 0px rgba(138, 138, 138, 0.09) inset
+          background-color: $green
+          padding: 5px 8px
+          box-sizing: border-box
+          border-radius: 20px
+          display: flex
+          align-items: center
+          gap: 1px
+
+          span
+            +font(12px, 16px, 400)
+            color: $white
+
+          .close_btn
+            display: flex
+            align-items: center
+            justify-content: center
+            cursor: pointer
+
+    &-filters
+      margin-top: 30px
+      border: 1px solid rgba(132, 213, 44, 0.36)
+      border-radius: 10px
+      background: linear-gradient(0deg, #353542, #353542),linear-gradient(174.36deg, rgba(132, 213, 44, 0.36) 11.39%, rgba(23, 23, 34, 0) 189.78%)
+      width: 243px
+      padding: 15px 22px 30px 17px
+      position: relative
+
+      &-title
+        display: flex
+        align-items: center
+        justify-content: space-between
+        width: 100%
+        margin: 15px 0 10px
+
+        &:first-child
+          margin-top: 0
+
+        h6
+          +font(18px, 24px, 600)
+          color: $white
+
+      &-container
+        display: flex
+        flex-direction: column
+        gap: 5px
+
+        .results-filters-item
+          position: relative
+          padding-left: 20px
+          display: flex
+          align-items: center
+
+          input
+            display: none
+
+            &:checked + label:before
+              background: $green-liner url(../assets/img/index/check.svg) no-repeat center
+              box-shadow: 3px 5px 12px 0px rgba(255, 255, 255, 0.36) inset
+
+            & + label
+              &:before
+                content: ''
+                width: 15px
+                height: 15px
+                box-sizing: border-box
+                border: 1px solid $gray
+                border-radius: 2px
+                position: absolute
+                left: 0
+                top: 0
+                transition: background-color .3s
+                cursor: pointer
+
+          label
+            color: $gray
+
+.main-results-img
+  position: absolute
+  top: calc(50% - 110px)
+  left: 0
+
+
+
+
+
+
+
+
+
+
+
+
+
