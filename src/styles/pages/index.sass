@@ -94,6 +94,8 @@
         left: auto
         background: $gray-bg
         border-radius: 10px
+        opacity: 1
+        transition: opacity .3s ease
 
         &-img
           width: 24px
@@ -126,6 +128,7 @@
       h5
         +font(16px, 21px, 600)
         color: $white
+        white-space: nowrap
 
       &-btns
         display: flex
@@ -143,15 +146,18 @@
           align-items: center
           gap: 1px
 
+
           span
             +font(12px, 16px, 400)
             color: $white
 
-          .close_btn
-            display: flex
-            align-items: center
-            justify-content: center
-            cursor: pointer
+      button
+        display: flex
+        align-items: center
+        justify-content: center
+        cursor: pointer
+        background-color: transparent
+        border: none
 
     &-filters
       margin-top: 30px
@@ -186,13 +192,15 @@
           padding-left: 20px
           display: flex
           align-items: center
+          cursor: pointer
 
           input
             display: none
 
             &:checked + label:before
-              background: $green-liner url(../assets/img/index/check.svg) no-repeat center
-              box-shadow: 3px 5px 12px 0px rgba(255, 255, 255, 0.36) inset
+              background: $green url(../assets/img/index/check.svg) no-repeat center
+              box-shadow: 3px 5px 12px 0 rgba(255, 255, 255, 0.36) inset
+              border: 1px solid green
 
             & + label
               &:before
@@ -210,11 +218,18 @@
 
           label
             color: $gray
+            cursor: pointer
 
 .main-results-img
   position: absolute
   top: calc(50% - 110px)
   left: 0
+
+.close_btn
+  display: flex
+  align-items: center
+  justify-content: center
+  cursor: pointer
 
 
 

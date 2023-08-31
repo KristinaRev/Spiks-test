@@ -10,15 +10,15 @@ block content
     .container
       .main-top
         .main-top-ranges
-          each el, id in ranges
+          each el, index in ranges
             .range
               h5=el.title
                 if el.min == 0
                   span=el.count
               .range-line
                 .range-line-indicator
-                  input.slider(type='range' min=el.min max=el.max step='1' value='50' id='#{id}#{el.title}')
-                  .range-line-indicator-value(id='#{id}#{el.title}Value') 50
+                  input.slider(type='range' min=el.min max=el.max step='1' value='50' id=`${el.title}${index}`)
+                  .range-line-indicator-value(id=`${el.title}Value${index}`) 50
               .range-values
                 if el.min > 0
                   .range-values-item.range-values-item-min=el.min
@@ -46,7 +46,7 @@ block content
       .main-results
         .main-results-top
           h5 1034,5 Results
-          .main-results-top-btns
+          .main-results-top-btns#selected-items
             each el in resultsTopBtns
               .results-filter-item
                 span=el
@@ -59,30 +59,10 @@ block content
               btn.toggle-btn
                 | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/index/arrow-toggle.svg')}
             .main-results-filters-container
-              each item, id in el.items
+              each item, index in el.items
                 .results-filters-item
-                  input(type='checkbox' id='#{item}#{id}')
-                  label(for='#{item}#{id}')=item
+                  input(type='checkbox' id=`${item}${index}`)
+                  label(for=`${item}${index}`)=item
+            #selected-items
           .main-results-img
             | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/index/list.svg')}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
