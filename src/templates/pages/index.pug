@@ -3,9 +3,78 @@ extends ../layouts/main/layout.pug
 append variables
 
 block title
-  | TITLE
+  | Spick-Test
 
 block content
+  .main
+    .container
+      .main-top
+        .main-top-ranges
+          each el, id in ranges
+            .range
+              h5=el.title
+                if el.min > 0
+                  span=el.count
+              .range-line
+                .range-line-indicator
+                  input.slider(type='range' min=el.min max=el.max step='1' value='50' id='#{id}#{el.title}')
+                  .range-value(id='#{id}#{el.title}Value') 50
+              .range-values
+                if el.min > 0
+                  .range-values-item=el.min
+                    span=el.count
+                .range-values-item=el.max
+                  span=el.count
+          .main-top-ranges-img
+            h5 Nose
+            | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/index/range.svg')}
+            .main-top-ranges-items
+              span min
+              span max
+        button.sort-by
+          | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/index/sortby.svg')}
+          .sort-by-list
+            each el in sortByList
+              button.sort-by-list_btn
+                .sort-by-list-item-img
+                  img.img-main(src=el.img alt)
+                  if el.imgMin
+                    img.img-mini(src=el.imgMin alt)
+                p=el.title
+      .main-results
+        .main-results-top
+          h5 1034,5 Results
+          .main-results-top-btns
+            each el in resultsTopBtns
+              .results-filter-item
+                span=el
+                btn.close_btn
+                  | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/index/close.svg')}
+        .main-results-filters
+          each el in filters
+            .main-results-filters-title
+              h6=el.title
+              btn.toggle-btn
+                | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/index/arrow-toggle.svg')}
+            .main-results-filters-container
+              each item, id in el.items
+                input(type='checkbox' id='#{item}')
+                span=item
+          | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/index/list.svg')}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
