@@ -193,6 +193,7 @@
           display: flex
           align-items: center
           cursor: pointer
+          z-index: 5
 
           input
             display: none
@@ -200,7 +201,7 @@
             &:checked + label:before
               background: $green url(../assets/img/index/check.svg) no-repeat center
               box-shadow: 3px 5px 12px 0 rgba(255, 255, 255, 0.36) inset
-              border: 1px solid green
+              border: none
 
             & + label
               &:before
@@ -216,6 +217,9 @@
                 transition: background-color .3s
                 cursor: pointer
 
+            &:checked > label
+              color: $white
+
           label
             color: $gray
             cursor: pointer
@@ -224,6 +228,7 @@
   position: absolute
   top: calc(50% - 110px)
   left: 0
+  z-index: 2
 
 .close_btn
   display: flex
