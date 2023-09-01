@@ -13,43 +13,109 @@
     &-ranges
       display: flex
       gap: 25px
+      margin-bottom: 15px
 
-      .range
-        width: 227px
+      .slider
+        width: 225px
+        height: 81px
+        position: relative
 
-        h5
-          +font(16px, 21px, 600)
+        &:after
+          content: ''
+          background-color: #30303D
+          height: 4px
+          border-radius: 3px
+          width: 100%
+
+        &-dot
+          width: 16px
+          height: 16px
+          background: $green-br
+          box-shadow: 3px 5px 12px 0 rgba(255, 255, 255, 0.2) inset
+          border-radius: 50%
+          position: absolute
+          left: 0
+          top: calc(50% + 4px)
+
+
+      .range-slider
+        width: 100%
+        background: linear-gradient(to right, $green-br, $green-br) no-repeat
+        box-shadow: 0 3px 15px 0 rgba(132, 213, 44, 0.31)
+        background-size: 50% 100%
+        appearance: none
+        height: 4px
+        border-radius: 3px
+        outline: none
+
+
+      .range-slider::-webkit-slider-thumb
+        width: 16px
+        height: 16px
+        background: $green-br
+        box-shadow: 3px 5px 12px 0 rgba(255, 255, 255, 0.2) inset
+        border-radius: 50%
+        cursor: pointer
+        -webkit-appearance: none
+        appearance: none
+        position: relative
+
+      .slider-value
+        display: block
+        +font(16px, 21px, 400)
+        color: $white
+
+        &-container
+          background-color: $gray-choose
+          display: flex
+          +font(16px, 21px, 400)
           color: $white
-          margin-bottom: 20px
+          padding: 2px 5px
+          box-sizing: border-box
+          position: absolute
+          border-radius: 3px
+          transform: translateX(-50%)
+          width: fit-content
+          top: 10px
+          right: 0
+          z-index: 7
 
-        &-line
+          &:after
+            content: ''
+            z-index: 5
+            background-color: $gray-choose
+            width: 10px
+            height: 10px
+            position: absolute
+            bottom: -5px
+            left: 40%
+            transform: rotate(135deg)
 
-          &-indicator
-            position: relative
+      h5
+        +font(16px, 21px, 600)
+        color: $white
+        margin-bottom: 20px
 
-            &-value
-              position: absolute
+      &-values
+        display: flex
+        align-items: center
+        justify-content: space-between
+        width: 100%
+        margin-top: 9px
 
-        &-values
+        &-item
+          box-sizing: border-box
+          padding: 1px 5px
+          color: $gray-dark
           display: flex
           align-items: center
-          justify-content: space-between
-          width: 100%
-          margin-top: 9px
+          +font(14px, 19px, 400)
+          gap: 2px
+          border: 1px solid $gray-dark
+          border-radius: 3px
 
-          &-item
-            box-sizing: border-box
-            padding: 1px 5px
-            color: $gray-dark
-            display: flex
-            align-items: center
-            +font(14px, 19px, 400)
-            gap: 2px
-            border: 1px solid $gray-dark
-            border-radius: 3px
-
-            &-min
-              color: $white
+          &-min
+            color: $white
 
       &-img
 
@@ -204,6 +270,7 @@
               border: none
 
             & + label
+
               &:before
                 content: ''
                 width: 15px
@@ -217,7 +284,7 @@
                 transition: background-color .3s
                 cursor: pointer
 
-            &:checked > label
+            &:checked + label
               color: $white
 
           label

@@ -10,23 +10,36 @@ block content
     .container
       .main-top
         .main-top-ranges
-          each el, index in ranges
-            .range
-              h5=el.title
-                if el.min == 0
-                  span=el.count
-              .range-line
-                .range-line-indicator
-                  input.slider(type='range' min=el.min max=el.max step='1' value='50' id=`${el.title}${index}`)
-                  .range-line-indicator-value(id=`${el.title}Value${index}`) 50
-              .range-values
-                if el.min > 0
-                  .range-values-item.range-values-item-min=el.min
-                    span=el.count
-                else
-                  .range-values-plug
-                .range-values-item=el.max
-                  span=el.count
+          .slider
+            h5 Price Range
+            input#slider1.range-slider(type='range' min='234' max='9999' value='1234')
+            .slider-value-container
+              output#slider1-value.slider-value 1234
+              span $
+            .slider-dot
+            .main-top-ranges-values
+              .main-top-ranges-values-item.main-top-ranges-values-item-min 234 $
+              .main-top-ranges-values-item 9999 $
+          .slider
+            h5 ТНС, %
+            input#slider2.range-slider(type='range' min='0' max='100' value='65')
+            .slider-value-container
+              output#slider2-value.slider-value 65
+              p %
+            .slider-dot
+            .main-top-ranges-values
+              .plug
+              .main-top-ranges-values-item 65 %
+          .slider
+            h5 CBD, %
+            input#slider3.range-slider(type='range' min='0' max='100' value='65')
+            .slider-value-container
+              output#slider3-value.slider-value 65
+              span %
+            .slider-dot
+            .main-top-ranges-values
+              .plug
+              .main-top-ranges-values-item 65 %
           .main-top-ranges-img
             h5 Nose
             | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/index/range.svg')}
@@ -63,6 +76,5 @@ block content
                 .results-filters-item
                   input(type='checkbox' id=`${item}${index}`)
                   label(for=`${item}${index}`)=item
-            #selected-items
           .main-results-img
             | !{require('!svg-inline-loader?removeSVGTagAttrs=false!@/assets/img/index/list.svg')}

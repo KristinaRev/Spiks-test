@@ -40,5 +40,38 @@ document.addEventListener('DOMContentLoaded', function() {
       })
     })
   })
+
+  const sliders = document.querySelectorAll('.range-slider')
+  const valueElements = document.querySelectorAll('.slider-value')
+
+  sliders.forEach((slider, index) => {
+    slider.addEventListener('input', function () {
+      const value = this.value
+      valueElements[index].textContent = value
+      updateSliderBackground(this)
+      updateSliderValuePosition(this, valueElements[index])
+    });
+
+    updateSliderBackground(slider)
+    updateSliderValuePosition(slider, valueElements[index])
+  });
 })
 
+function updateSliderBackground(slider) {
+  const min = slider.min
+  const max = slider.max
+  const val = slider.value
+
+  const percentage = ((val - min) / (max - min)) * 100
+
+  slider.style.backgroundSize = `${percentage}% 100%`
+}
+
+function updateSliderValuePosition(slider, valueElement) {
+  const thumbWidth = 20;
+  const trackWidth = slider.offsetWidth - thumbWidth
+  const percentage = ((slider.value - slider.min) / (slider.max - slider.min)) * 100
+  const position = (percentage / 100) * trackWidth + thumbWidth / 2
+
+  valueElement.style.left = `${position}px`
+}
